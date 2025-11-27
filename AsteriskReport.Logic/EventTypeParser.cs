@@ -1,0 +1,21 @@
+﻿using AsteriskReport.Contracts.DTOs;
+using AsteriskReport.Contracts.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AsteriskReport.Logic
+{
+    public class EventTypeParser : IEventTypeParser
+    {
+        private Dictionary<string, EventType> eventTypesByUpperCaseName 
+            = Enum.GetValues<EventType>().ToDictionary(e => e.ToString().ToUpperInvariant());
+
+        public EventType Parse(string eventType)
+        {
+            return eventTypesByUpperCaseName[eventType];
+        }
+    }
+}

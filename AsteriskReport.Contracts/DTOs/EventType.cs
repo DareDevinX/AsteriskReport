@@ -9,7 +9,7 @@ namespace AsteriskReport.Contracts.DTOs
     public enum EventType
     {
         QueueStart,
-        ConfigureLoad,
+        ConfigReload,
         RingNoAnswer,
         Connect,
         CompleteAgent,

@@ -12,4 +12,10 @@
     <ProjectReference Include="..\AsteriskReport.Logic\AsteriskReport.Logic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestData\Testdaten.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
