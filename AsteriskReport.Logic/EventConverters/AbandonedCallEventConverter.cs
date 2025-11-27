@@ -19,6 +19,7 @@ namespace AsteriskReport.Logic.EventConverters
         {
             return new Call
             {
+                StartTime = queueEvent.Timestamp,
                 WasSuccessful = false,
                 CallTimeSeconds = 0,
                 WaitTimeSeconds = int.Parse(queueEvent.Parameters[2])

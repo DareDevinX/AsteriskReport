@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DS.Documents.Imaging" Version="8.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AsteriskReport.Contracts\AsteriskReport.Contracts.csproj" />
   </ItemGroup>
 
