@@ -1,5 +1,6 @@
 using AsteriskReport.Contracts.DTOs;
 using AsteriskReport.Logic;
+using ObjectsComparator.Comparator.Helpers;
 
 namespace AsteriskReport.Tests.IntegrationTests
 {
@@ -35,6 +36,10 @@ namespace AsteriskReport.Tests.IntegrationTests
                 EventType = EventType.RingNoAnswer,
                 Parameters = ["0"] 
             };
+
+            // Assert
+            var comparisonResult = actualResult.DeeplyEquals(expectedResult);
+            Assert.IsTrue(comparisonResult.IsEmpty(), comparisonResult.FirstOrDefault()?.ToString());
         }
     }
 }
