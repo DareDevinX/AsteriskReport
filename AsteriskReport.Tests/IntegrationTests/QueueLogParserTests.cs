@@ -7,12 +7,12 @@ namespace AsteriskReport.Tests.IntegrationTests
     [TestFixture]
     public class QueueLogParserTests
     {
-        private QueueLogParser sut;
+        private QueueEventParser sut;
 
         [SetUp]
         public void Setup()
         {
-            this.sut = new QueueLogParser(
+            this.sut = new QueueEventParser(
                 new TimestampConverter(),
                 new EventTypeParser());
         }
@@ -27,7 +27,7 @@ namespace AsteriskReport.Tests.IntegrationTests
             var actualResult = this.sut.Parse(logEntry);
 
             // Assert
-            var expectedResult = new QueueLog
+            var expectedResult = new QueueEvent
             {
                 Timestamp = new DateTime(2010, 2, 22, 10, 18, 31),
                 ChannelId = "1266833905.2",

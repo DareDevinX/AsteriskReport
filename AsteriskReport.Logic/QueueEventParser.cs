@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace AsteriskReport.Logic
 {
-    public class QueueLogParser : IQueueLogParser
+    public class QueueEventParser : IQueueEventParser
     {
         private readonly ITimestampConverter timestampConverter;
         private readonly IEventTypeParser eventTypeParser;
 
-        public QueueLogParser(ITimestampConverter timestampConverter,
+        public QueueEventParser(ITimestampConverter timestampConverter,
             IEventTypeParser eventTypeParser)
         {
             this.timestampConverter = timestampConverter ?? throw new ArgumentNullException(nameof(timestampConverter));
             this.eventTypeParser = eventTypeParser ?? throw new ArgumentNullException(nameof(eventTypeParser));
         }
 
-        public QueueLog Parse(string queueLogEntry)
+        public QueueEvent Parse(string queueLogEntry)
         {
             var logEntryElements = queueLogEntry.Split('|');
-            return new QueueLog
+            return new QueueEvent
             {
                 Timestamp = timestampConverter.FromUnix(logEntryElements[0]),
                 ChannelId = logEntryElements[1],

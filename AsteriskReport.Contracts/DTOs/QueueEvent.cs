@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsteriskReport.Contracts.DTOs
 {
-    public class QueueLog
+    public class QueueEvent
     {
         public DateTime Timestamp { get; set; }
         public string ChannelId { get; set; }

@@ -2,8 +2,8 @@
 
 namespace AsteriskReport.Logic
 {
-    public interface IQueueLogParser
+    public interface IQueueEventParser
     {
-        QueueLog Parse(string queueLogEntry);
+        QueueEvent Parse(string queueLogEntry);
     }
 }
