@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AsteriskReport.Contracts.DTOs
 {
-    public enum Color
+    public enum BarColor
     {
         Red = 116,
         Yellow = 141,
