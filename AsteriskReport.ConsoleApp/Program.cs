@@ -9,6 +9,7 @@ namespace AsteriskReport
     {
         static void Main(string[] args)
         {
+            // DI starts here
             var fileReader = new FileReader();
             var queueLogParser = new QueueEventParser(new TimestampConverter(), new EventTypeParser());
             var callEventConverters = new ICallEventConverter[]
@@ -22,8 +23,8 @@ namespace AsteriskReport
             var barGraphCreator = new BarGraphCreator();
             var svgGenerator = new SvgGenerator();
 
+            // logic starts here
             var lines = fileReader.ReadLines("TestData\\Testdaten.txt");
-            
             var queueEvents = lines.Select(queueLogParser.Parse).ToArray();
             var calls = callEventAnalyzer.Analyze(queueEvents);
             var bars = barGraphCreator.Create(calls);
