@@ -13,6 +13,7 @@ Ich habe es leider nicht vor meinem Urlaub geschafft, die ganze Aufgabe abzuschl
 ## Das fehlt noch
 
 * Verwendung eines Dependency Injection Frameworks
+* Konfigurierbarkeit der Dateipfade für Input und Output
 * Refactoring / Renaming einiger Klassen
 * Export als Bitmap
 * Schönere grafische Darstellung
@@ -20,3 +21,4 @@ Ich habe es leider nicht vor meinem Urlaub geschafft, die ganze Aufgabe abzuschl
 
 Der erste Anlauf sollte zumindest schon einmal einen grundsätzlich Eindruck vermitteln, wie mein Programmierstil aussieht. Ein Update ist für die Woche nach meinem Urlaub geplant, von dem ich am 8.12. zurückkehre.
   
+
