@@ -7,11 +7,19 @@ using System.Threading.Tasks;
 using GrapeCity.Documents.Imaging;
 using GrapeCity.Documents.Svg;
 using System.Net.Http.Headers;
+using AsteriskReport.Contracts.Config;
 
 namespace AsteriskReport.Logic.Graph
 {
     public class BarGraphCreator
     {
+        private readonly Config config;
+
+        public BarGraphCreator(Config config)
+        {
+            this.config = config;
+        }
+
         public IEnumerable<Bar> Create(Call[] calls)
         {
             var callsByTime = calls.GroupBy(c => c.StartTime).ToArray();
@@ -32,7 +40,7 @@ namespace AsteriskReport.Logic.Graph
             {
                 var waitTimeSection = new BarSegment(
                     barSegments.Sum(segment => segment.Height),
-                    call.WaitTimeSeconds);
+                    Math.Min(call.WaitTimeSeconds, config.MaxBarSegmentLengthPixels));
 
                 barSegments.Add(waitTimeSection);
                 if (call.WasSuccessful)

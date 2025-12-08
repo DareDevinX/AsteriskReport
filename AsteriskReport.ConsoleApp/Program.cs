@@ -1,4 +1,5 @@
-﻿using AsteriskReport.Contracts.Interfaces;
+﻿using AsteriskReport.Contracts.Config;
+using AsteriskReport.Contracts.Interfaces;
 using AsteriskReport.Logic;
 using AsteriskReport.Logic.EventConverters;
 using AsteriskReport.Logic.Graph;
@@ -10,6 +11,10 @@ namespace AsteriskReport
         static void Main(string[] args)
         {
             // DI starts here
+            var config = new Config()
+            {
+                MaxBarSegmentLengthPixels = 100
+            };
             var fileReader = new FileReader();
             var queueLogParser = new QueueEventParser(new TimestampConverter(), new EventTypeParser());
             var callEventConverters = new ICallEventConverter[]
@@ -20,7 +25,7 @@ namespace AsteriskReport
             };
 
             var callEventAnalyzer = new CallEventAnalyzer(callEventConverters);
-            var barGraphCreator = new BarGraphCreator();
+            var barGraphCreator = new BarGraphCreator(config);
             var svgGenerator = new SvgGenerator();
 
             // logic starts here

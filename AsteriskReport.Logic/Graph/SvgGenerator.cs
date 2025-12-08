@@ -1,4 +1,5 @@
 ﻿using AsteriskReport.Contracts.DTOs;
+using GrapeCity.Documents.Imaging;
 using GrapeCity.Documents.Svg;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ namespace AsteriskReport.Logic.Graph
             viewBox.Width = canvasWidth;
             viewBox.Height = canvasHeight;
             svgDoc.RootSvg.ViewBox = viewBox;
+            
             svgDoc.Save("output.svg");
         }
 
