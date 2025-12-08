@@ -37,7 +37,15 @@ namespace AsteriskReport.Logic.Graph
             viewBox.Width = canvasWidth;
             viewBox.Height = canvasHeight;
             svgDoc.RootSvg.ViewBox = viewBox;
-            
+            svgDoc.RootSvg.Transform =
+            [
+                new SvgScaleTransform
+                {
+                    ScaleX = 1,
+                    ScaleY = -1
+                }
+            ];
+
             svgDoc.Save("output.svg");
         }
 
