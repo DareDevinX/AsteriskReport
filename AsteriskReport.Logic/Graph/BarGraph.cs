@@ -65,10 +65,10 @@ namespace AsteriskReport.Logic.Graph
             return x * (config.BarWidth + config.HorizontalSpacing) + config.GraphLeftOffset;
         }
 
-        private RectangleF createRectFromSegment(BarSegment segment, float x, float canvasHeight)
+        private RectangleF createRectFromSegment(BarSegment segment, float horizontalPosition, float canvasHeight)
         {
             return new RectangleF(
-                calculateXPosition(x),
+                calculateXPosition(horizontalPosition),
                 canvasHeight - segment.Height - segment.Y,
                 config.BarWidth,
                 segment.Height);

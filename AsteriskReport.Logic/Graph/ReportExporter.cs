@@ -19,10 +19,10 @@ namespace AsteriskReport.Logic.Graph
 
             foreach (var bar in bars)
             {
-                barGraph.DrawBarLabel(bar.Timestamp, bar.X);
+                barGraph.DrawBarLabel(bar.Timestamp, bar.HorizontalPosition);
                 foreach (var segment in bar.Segments)
                 {
-                    barGraph.DrawBarSegment(segment, bar.X);
+                    barGraph.DrawBarSegment(segment, bar.HorizontalPosition);
                 }
             }
 

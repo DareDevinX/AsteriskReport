@@ -16,7 +16,7 @@ namespace AsteriskReport.Logic.Graph
         {
             var callsByTime = calls.GroupBy(c => c.StartTime).ToArray();
             var bars = new List<Bar>();
-            for (var i = 0; i < callsByTime.Count(); i++)
+            for (var i = 0; i < callsByTime.Length; i++)
             {
                 var grouping = callsByTime[i];
                 bars.Add(new Bar(convertCallGroupToBars(grouping), i, config.BarWidth, grouping.Key));
