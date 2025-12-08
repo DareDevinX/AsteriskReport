@@ -25,7 +25,7 @@ namespace AsteriskReport.Tests.IntegrationTests
                 MinBarSegmentLength = 2
 
             };
-            this.sut = new BmpGenerator(config);
+            this.sut = new BmpGenerator(new BarGraphFactory(config));
         }
 
         [Test]

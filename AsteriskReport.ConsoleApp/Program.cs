@@ -32,7 +32,7 @@ namespace AsteriskReport
 
             var callEventAnalyzer = new CallEventAnalyzer(callEventConverters);
             var barGraphCreator = new BarGraphCreator(config);
-            var bitmapGenerator = new BmpGenerator(config);
+            var bitmapGenerator = new BmpGenerator(new BarGraphFactory(config));
 
             // logic starts here
             var lines = fileReader.ReadLines("TestData\\Testdaten.txt");
