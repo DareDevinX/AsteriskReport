@@ -1,4 +1,5 @@
-﻿using AsteriskReport.Contracts.DTOs;
+﻿using AsteriskReport.Contracts.Config;
+using AsteriskReport.Contracts.DTOs;
 using GrapeCity.Documents.Imaging;
 using GrapeCity.Documents.Svg;
 using System;
@@ -12,7 +13,12 @@ namespace AsteriskReport.Logic.Graph
 {
     public class SvgGenerator
     {
-        private const int barWidth = 5;
+        private readonly BarGraphConfig config;
+
+        public SvgGenerator(BarGraphConfig config)
+        {
+            this.config = config;
+        }
 
         public void GenerateSvgImage(IEnumerable<Bar> bars)
         {
@@ -26,7 +32,7 @@ namespace AsteriskReport.Logic.Graph
             }
 
             var svgDoc = new GcSvgDocument();
-            var canvasWidth = bars.Count() * barWidth;
+            var canvasWidth = bars.Count() * (config.BarWidth + config.HorizontalSpacing);
             svgDoc.RootSvg.Width = new SvgLength(canvasWidth);
             var canvasHeight = bars.Max(bar => bar.Segments.Sum(segment => segment.Height));
             svgDoc.RootSvg.Height = new SvgLength(canvasHeight);
@@ -52,12 +58,12 @@ namespace AsteriskReport.Logic.Graph
         private SvgRectElement createRectFromSegment(BarSegment segment, float x)
         {
             var section = new SvgRectElement();
-            section.X = new SvgLength(x * barWidth);
+            section.X = new SvgLength(x * (config.BarWidth + config.HorizontalSpacing));
             section.Y = new SvgLength(segment.Y);
             section.StrokeWidth = new SvgLength(1);
-            section.MinWidth = new SvgLength(barWidth);
-            section.MaxWidth = new SvgLength(barWidth);
-            section.Width = new SvgLength(barWidth);
+            section.MinWidth = new SvgLength(config.BarWidth);
+            section.MaxWidth = new SvgLength(config.BarWidth);
+            section.Width = new SvgLength(config.BarWidth);
             section.Height = new SvgLength(segment.Height);
             section.MinHeight = new SvgLength(segment.Height);
             section.MaxHeight = new SvgLength(segment.Height);

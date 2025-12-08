@@ -10,11 +10,13 @@ namespace AsteriskReport.Contracts.DTOs
     {
         public float X { get; set; }
         public IEnumerable<BarSegment> Segments { get; set; }
+        public float Width { get; set; }
 
-        public Bar(IEnumerable<BarSegment> segments, float x)
+        public Bar(IEnumerable<BarSegment> segments, float x, float width)
         {
             this.Segments = segments;
             this.X = x;
+            this.Width = width;
         }
     }
 }

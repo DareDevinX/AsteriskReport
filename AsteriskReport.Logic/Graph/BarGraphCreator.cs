@@ -13,9 +13,9 @@ namespace AsteriskReport.Logic.Graph
 {
     public class BarGraphCreator
     {
-        private readonly Config config;
+        private readonly BarGraphConfig config;
 
-        public BarGraphCreator(Config config)
+        public BarGraphCreator(BarGraphConfig config)
         {
             this.config = config;
         }
@@ -27,7 +27,7 @@ namespace AsteriskReport.Logic.Graph
             for (var i = 0; i < callsByTime.Count(); i++)
             {
                 var grouping = callsByTime[i];
-                bars.Add(new Bar(convertCallGroupToBars(grouping), i));
+                bars.Add(new Bar(convertCallGroupToBars(grouping), i, config.BarWidth));
             }
 
             return bars;
@@ -40,7 +40,7 @@ namespace AsteriskReport.Logic.Graph
             {
                 var waitTimeSection = new BarSegment(
                     barSegments.Sum(segment => segment.Height),
-                    Math.Min(call.WaitTimeSeconds, config.MaxBarSegmentLengthPixels));
+                    Math.Max(config.MinBarSegmentLength, Math.Min(call.WaitTimeSeconds, config.MaxBarSegmentLength)));
 
                 barSegments.Add(waitTimeSection);
                 if (call.WasSuccessful)

@@ -11,9 +11,13 @@ namespace AsteriskReport
         static void Main(string[] args)
         {
             // DI starts here
-            var config = new Config()
+            var config = new BarGraphConfig()
             {
-                MaxBarSegmentLengthPixels = 100
+                MaxBarSegmentLength = 100,
+                BarWidth = 10,
+                HorizontalSpacing = 5,
+                MinBarSegmentLength = 2
+
             };
             var fileReader = new FileReader();
             var queueLogParser = new QueueEventParser(new TimestampConverter(), new EventTypeParser());
@@ -26,7 +30,7 @@ namespace AsteriskReport
 
             var callEventAnalyzer = new CallEventAnalyzer(callEventConverters);
             var barGraphCreator = new BarGraphCreator(config);
-            var svgGenerator = new SvgGenerator();
+            var svgGenerator = new SvgGenerator(config);
 
             // logic starts here
             var lines = fileReader.ReadLines("TestData\\Testdaten.txt");
