@@ -3,11 +3,6 @@ using AsteriskReport.Contracts.Interfaces;
 using AsteriskReport.Logic;
 using AsteriskReport.Logic.EventConverters;
 using AutoFixture;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AsteriskReport.Tests.IntegrationTests
 {

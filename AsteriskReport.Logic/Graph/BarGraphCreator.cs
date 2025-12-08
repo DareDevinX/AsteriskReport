@@ -1,12 +1,4 @@
 ﻿using AsteriskReport.Contracts.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GrapeCity.Documents.Imaging;
-using GrapeCity.Documents.Svg;
-using System.Net.Http.Headers;
 using AsteriskReport.Contracts.Config;
 
 namespace AsteriskReport.Logic.Graph

@@ -1,13 +1,4 @@
-﻿using AsteriskReport.Contracts.Config;
-using AsteriskReport.Contracts.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AsteriskReport.Contracts.DTOs;
 
 namespace AsteriskReport.Logic.Graph
 {
