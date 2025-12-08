@@ -3,11 +3,11 @@ using AsteriskReport.Contracts.Config;
 
 namespace AsteriskReport.Logic.Graph
 {
-    public class BarGraphCreator
+    public class BarCreator : IBarCreator
     {
         private readonly BarGraphConfig config;
 
-        public BarGraphCreator(BarGraphConfig config)
+        public BarCreator(BarGraphConfig config)
         {
             this.config = config;
         }

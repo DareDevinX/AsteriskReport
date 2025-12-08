@@ -5,9 +5,9 @@ using AsteriskReport.Logic.Graph;
 namespace AsteriskReport.Tests.IntegrationTests
 {
     [TestFixture]
-    public class BmpGeneratorTests
+    public class ReportExporterTests
     {
-        private BmpGenerator sut;
+        private ReportExporter sut;
 
         [SetUp]
         public void Setup()
@@ -20,7 +20,7 @@ namespace AsteriskReport.Tests.IntegrationTests
                 MinBarSegmentLength = 2
 
             };
-            this.sut = new BmpGenerator(new BarGraphFactory(config));
+            this.sut = new ReportExporter(new BarGraphFactory(config));
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace AsteriskReport.Tests.IntegrationTests
             var bar = new Bar(segments, 0, 10, new DateTime());
 
             // Act
-            this.sut.GenerateBmpImage(new[] { bar });
+            this.sut.SaveReport(new[] { bar });
         }
     }
 }

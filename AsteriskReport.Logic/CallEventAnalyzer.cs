@@ -5,9 +5,9 @@ namespace AsteriskReport.Logic
 {
     public class CallEventAnalyzer : ICallEventAnalyzer
     {
-        private readonly ICallEventConverter[] callEventConverters;
+        private readonly IEnumerable<ICallEventConverter> callEventConverters;
 
-        public CallEventAnalyzer(ICallEventConverter[] callEventConverters)
+        public CallEventAnalyzer(IEnumerable<ICallEventConverter> callEventConverters)
         {
             this.callEventConverters = callEventConverters ?? throw new ArgumentNullException(nameof(callEventConverters));
         }
