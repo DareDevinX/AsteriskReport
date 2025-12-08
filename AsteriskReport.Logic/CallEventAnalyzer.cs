@@ -12,7 +12,7 @@ namespace AsteriskReport.Logic
             this.callEventConverters = callEventConverters ?? throw new ArgumentNullException(nameof(callEventConverters));
         }
 
-        public Call[] Analyze(QueueEvent[] queueEvents)
+        public IEnumerable<Call> Analyze(IEnumerable<QueueEvent> queueEvents)
         {
             var calls = new List<Call>();
             foreach (var queueEvent in queueEvents)

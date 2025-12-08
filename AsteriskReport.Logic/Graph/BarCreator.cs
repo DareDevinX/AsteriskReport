@@ -12,7 +12,7 @@ namespace AsteriskReport.Logic.Graph
             this.config = config;
         }
 
-        public IEnumerable<Bar> Create(Call[] calls)
+        public IEnumerable<Bar> Create(IEnumerable<Call> calls)
         {
             var callsByTime = calls.GroupBy(c => c.StartTime).ToArray();
             var bars = new List<Bar>();

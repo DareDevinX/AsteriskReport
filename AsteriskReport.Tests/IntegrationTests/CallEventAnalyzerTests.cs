@@ -36,7 +36,7 @@ namespace AsteriskReport.Tests.IntegrationTests
             var actualCalls = this.sut.Analyze(queueEvents);
 
             // Assert
-            Assert.That(actualCalls.Length, Is.EqualTo(4));
+            Assert.That(actualCalls.Count, Is.EqualTo(4));
         }
             
         private QueueEvent[] createTestData()

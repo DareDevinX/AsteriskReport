@@ -4,6 +4,6 @@ namespace AsteriskReport.Contracts.Interfaces
 {
     public interface ICallEventAnalyzer
     {
-        Call[] Analyze(QueueEvent[] queueEvent);
+        IEnumerable<Call> Analyze(IEnumerable<QueueEvent> queueEvent);
     }
 }

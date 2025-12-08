@@ -4,6 +4,6 @@ namespace AsteriskReport.Logic.Graph
 {
     public interface IBarCreator
     {
-        IEnumerable<Bar> Create(Call[] calls);
+        IEnumerable<Bar> Create(IEnumerable<Call> calls);
     }
 }
