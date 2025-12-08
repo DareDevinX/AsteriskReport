@@ -30,14 +30,14 @@ namespace AsteriskReport
 
             var callEventAnalyzer = new CallEventAnalyzer(callEventConverters);
             var barGraphCreator = new BarGraphCreator(config);
-            var svgGenerator = new SvgGenerator(config);
+            var bitmapGenerator = new BmpGenerator(config);
 
             // logic starts here
             var lines = fileReader.ReadLines("TestData\\Testdaten.txt");
             var queueEvents = lines.Select(queueLogParser.Parse).ToArray();
             var calls = callEventAnalyzer.Analyze(queueEvents);
             var bars = barGraphCreator.Create(calls);
-            svgGenerator.GenerateSvgImage(bars);
+            bitmapGenerator.GenerateBmpImage(bars);
         }
     }
 }

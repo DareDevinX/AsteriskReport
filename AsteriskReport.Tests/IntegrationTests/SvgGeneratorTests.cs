@@ -16,7 +16,8 @@ namespace AsteriskReport.Tests.IntegrationTests
         [SetUp]
         public void Setup()
         {
-            this.sut = new SvgGenerator();
+            var config = new Contracts.Config.BarGraphConfig();
+            this.sut = new SvgGenerator(config);
         }
 
         [Test]
@@ -29,7 +30,7 @@ namespace AsteriskReport.Tests.IntegrationTests
                 new BarSegment(10, 10, BarColor.Yellow),
                 new BarSegment(20, 10, BarColor.Green),
             };
-            var bar = new Bar(segments, 0);
+            var bar = new Bar(segments, 0, 10);
 
             // Act
             this.sut.GenerateSvgImage(new[] {bar} );
