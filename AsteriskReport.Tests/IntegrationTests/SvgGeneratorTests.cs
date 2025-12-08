@@ -30,7 +30,7 @@ namespace AsteriskReport.Tests.IntegrationTests
                 new BarSegment(10, 10, BarColor.Yellow),
                 new BarSegment(20, 10, BarColor.Green),
             };
-            var bar = new Bar(segments, 0, 10);
+            var bar = new Bar(segments, 0, 10, new DateTime());
 
             // Act
             this.sut.GenerateSvgImage(new[] {bar} );

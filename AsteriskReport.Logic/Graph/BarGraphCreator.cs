@@ -27,7 +27,7 @@ namespace AsteriskReport.Logic.Graph
             for (var i = 0; i < callsByTime.Count(); i++)
             {
                 var grouping = callsByTime[i];
-                bars.Add(new Bar(convertCallGroupToBars(grouping), i, config.BarWidth));
+                bars.Add(new Bar(convertCallGroupToBars(grouping), i, config.BarWidth, grouping.Key));
             }
 
             return bars;

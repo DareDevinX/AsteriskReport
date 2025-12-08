@@ -3,6 +3,7 @@ using AsteriskReport.Contracts.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -22,6 +23,7 @@ namespace AsteriskReport.Logic.Graph
 
         private Pen borderPen = new Pen(Color.Black, 1);
         private Brush backgroundBrush = new SolidBrush(Color.White);
+        private Brush textBrush = new SolidBrush(Color.Black);
 
         public BmpGenerator(BarGraphConfig config)
         {
@@ -32,23 +34,28 @@ namespace AsteriskReport.Logic.Graph
         {
             var canvasWidth = bars.Count() * (config.BarWidth + config.HorizontalSpacing);
             var canvasHeight = (int)bars.Max(bar => bar.Segments.Sum(segment => segment.Height));
-            var bitmap = new Bitmap(canvasWidth + 100, canvasHeight + 100);
+            var bitmap = new Bitmap(canvasWidth + config.GraphLeftOffset, canvasHeight + config.GraphBottomOffset);
             var graphics = Graphics.FromImage(bitmap);
-            graphics.FillRectangle(backgroundBrush, 0, 0, canvasWidth + 100, canvasHeight + 100);
+            graphics.FillRectangle(backgroundBrush, 0, 0, canvasWidth + config.GraphLeftOffset, canvasHeight + config.GraphBottomOffset);
+
+            var stringFormat = new StringFormat(StringFormatFlags.DirectionVertical);
+            graphics.DrawString("Calls", new Font("Arial", 10), textBrush, 30, 0, stringFormat);
+            graphics.DrawLine(borderPen, config.GraphLeftOffset, canvasHeight, canvasWidth + config.GraphLeftOffset, canvasHeight);
+            graphics.DrawLine(borderPen, config.GraphLeftOffset, canvasHeight, config.GraphLeftOffset, 0);
 
 
-            
-            graphics.DrawLine(borderPen, 50, canvasHeight, canvasWidth + 100, canvasHeight);
-            graphics.DrawLine(borderPen, 50, canvasHeight, 50, 0);
             var rects = new List<RectangleF>();
             foreach (var bar in bars)
             {
+                var timestampString = bar.Timestamp.ToString(CultureInfo.InvariantCulture);
+                graphics.DrawString(timestampString, new Font("Arial", 10), textBrush, calculateXPosition(bar.X), canvasHeight, stringFormat);
                 foreach (var segment in bar.Segments)
                 {
                     var rect = createRectFromSegment(segment, bar.X, canvasHeight);
                     var brush = brushesByColor[segment.Color];
                     graphics.FillRectangle(brush, rect);
                     graphics.DrawRectangle(borderPen, rect);
+                    
                 }
             }
 
@@ -58,10 +65,15 @@ namespace AsteriskReport.Logic.Graph
         private RectangleF createRectFromSegment(BarSegment segment, float x, float canvasHeight)
         {
             return new RectangleF(
-                x * (config.BarWidth + config.HorizontalSpacing) + 100,
+                calculateXPosition(x),
                 canvasHeight - segment.Height - segment.Y,
                 config.BarWidth,
                 segment.Height);
+        }
+
+        private float calculateXPosition(float x)
+        {
+            return x * (config.BarWidth + config.HorizontalSpacing) + config.GraphLeftOffset;
         }
     }
 }

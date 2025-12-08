@@ -14,9 +14,11 @@ namespace AsteriskReport
             var config = new BarGraphConfig()
             {
                 MaxBarSegmentLength = 100,
-                BarWidth = 10,
+                BarWidth = 20,
                 HorizontalSpacing = 5,
-                MinBarSegmentLength = 2
+                MinBarSegmentLength = 2,
+                GraphLeftOffset = 50,
+                GraphBottomOffset = 150
 
             };
             var fileReader = new FileReader();

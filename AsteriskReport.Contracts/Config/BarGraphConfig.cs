@@ -12,5 +12,7 @@ namespace AsteriskReport.Contracts.Config
         public int BarWidth { get; set; }
         public int HorizontalSpacing { get; set; }
         public int MinBarSegmentLength { get; set; }
+        public int GraphLeftOffset { get; set; }
+        public int GraphBottomOffset { get; set; }
     }
 }
