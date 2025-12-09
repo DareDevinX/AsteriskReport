@@ -1,24 +1,22 @@
-# STILL WORK IN PROGRESS
+# FEATURE COMPLETE
 
-Ich habe es leider nicht vor meinem Urlaub geschafft, die ganze Aufgabe abzuschließen. Mehr war an einem Abend nicht drin.
+Das Projekt ist in einem Zustand, mit dem ich in Anbetracht der Aufgabe zu 90% zufrieden bin.
 
 ## Das funktioniert
 
 * Auslesen des Logs
 * Filtern auf für die Anrufstatistik relevanten Ereignisse
 * Berechnung von Calls und deren Dauer
-* Rudimentärer Export der Ergebnisse als SVG Datei
-* Integration Tests, die während der Entwicklung entstanden sind
+* Export der Ergebnisse als BMP Datei in Form eines Säulendiagramms
+  * Beschriftung der Achsen mit Zeitstempel der Ereignisse
+  * Gestapelte Säulen, wenn Ereignisse zur selben Zeit stattfinden
+* Ein paar Beispielhafte Unit- und Integration Tests
+* Konfigurierbarkeit einiger Parameter
+* Verwendung des Standard Microsoft Dependency Injection Frameworks
 
-## Das fehlt noch
+## Ausblick
 
-* Verwendung eines Dependency Injection Frameworks
-* Konfigurierbarkeit der Dateipfade für Input und Output
-* Refactoring / Renaming einiger Klassen
-* Export als Bitmap
-* Schönere grafische Darstellung
-
-
-Der erste Anlauf sollte zumindest schon einmal einen grundsätzlich Eindruck vermitteln, wie mein Programmierstil aussieht. Ein Update ist für die Woche nach meinem Urlaub geplant, von dem ich am 8.12. zurückkehre.
+Die Testabdeckung hätte ich noch erhöhen können, aber da ich schon eine Woche hinterher bin, gebe ich das ganze lieber so ab.
   
+
 
