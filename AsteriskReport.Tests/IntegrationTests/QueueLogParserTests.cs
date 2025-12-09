@@ -13,7 +13,7 @@ namespace AsteriskReport.Tests.IntegrationTests
         public void Setup()
         {
             this.sut = new QueueEventParser(
-                new TimestampConverter(),
+                new TimestampParser(),
                 new EventTypeParser());
         }
 

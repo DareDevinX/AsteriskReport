@@ -1,6 +1,6 @@
 ﻿namespace AsteriskReport.Contracts.Interfaces
 {
-    public interface ITimestampConverter
+    public interface ITimestampParser
     {
         public DateTime FromUnix(string unixTimestamp);
     }

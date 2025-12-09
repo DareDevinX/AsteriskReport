@@ -5,10 +5,10 @@ namespace AsteriskReport.Logic
 {
     public class QueueEventParser : IQueueEventParser
     {
-        private readonly ITimestampConverter timestampConverter;
+        private readonly ITimestampParser timestampConverter;
         private readonly IEventTypeParser eventTypeParser;
 
-        public QueueEventParser(ITimestampConverter timestampConverter,
+        public QueueEventParser(ITimestampParser timestampConverter,
             IEventTypeParser eventTypeParser)
         {
             this.timestampConverter = timestampConverter ?? throw new ArgumentNullException(nameof(timestampConverter));

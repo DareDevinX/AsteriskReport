@@ -2,7 +2,7 @@
 
 namespace AsteriskReport.Logic
 {
-    public class TimestampConverter : ITimestampConverter
+    public class TimestampParser : ITimestampParser
     {
         public DateTime FromUnix(string unixTimestamp)
         {
