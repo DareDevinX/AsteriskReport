@@ -1,6 +1,6 @@
 ﻿using AsteriskReport.Contracts.DTOs;
 
-namespace AsteriskReport.Logic
+namespace AsteriskReport.Contracts.Interfaces.Parsers
 {
     public interface IQueueEventParser
     {

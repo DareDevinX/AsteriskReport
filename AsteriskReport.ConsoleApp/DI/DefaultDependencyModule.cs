@@ -1,10 +1,15 @@
 ﻿using AsteriskReport.Contracts.Config;
-using AsteriskReport.Contracts.Interfaces;
 using AsteriskReport.Logic.EventConverters;
 using AsteriskReport.Logic.Graph;
 using AsteriskReport.Logic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AsteriskReport.Logic.Parsers;
+using AsteriskReport.Contracts.Interfaces.EventConverters;
+using AsteriskReport.Contracts.Interfaces.Parsers;
+using AsteriskReport.Contracts.Interfaces.Graph;
+using AsteriskReport.Logic.Calls;
+using AsteriskReport.Contracts.Interfaces.Calls;
 
 namespace AsteriskReport.ConsoleApp.DI
 {

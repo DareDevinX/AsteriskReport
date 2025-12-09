@@ -1,5 +1,6 @@
 using AsteriskReport.Contracts.DTOs;
 using AsteriskReport.Logic;
+using AsteriskReport.Logic.Parsers;
 using ObjectsComparator.Comparator.Helpers;
 
 namespace AsteriskReport.Tests.IntegrationTests

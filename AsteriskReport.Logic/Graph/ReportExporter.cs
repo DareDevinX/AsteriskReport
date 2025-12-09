@@ -1,4 +1,5 @@
 ﻿using AsteriskReport.Contracts.DTOs;
+using AsteriskReport.Contracts.Interfaces.Graph;
 
 namespace AsteriskReport.Logic.Graph
 {

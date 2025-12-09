@@ -1,7 +1,8 @@
 ﻿using AsteriskReport.Contracts.DTOs;
-using AsteriskReport.Contracts.Interfaces;
+using AsteriskReport.Contracts.Interfaces.Calls;
+using AsteriskReport.Contracts.Interfaces.EventConverters;
 
-namespace AsteriskReport.Logic
+namespace AsteriskReport.Logic.Calls
 {
     public class CallEventAnalyzer : ICallEventAnalyzer
     {

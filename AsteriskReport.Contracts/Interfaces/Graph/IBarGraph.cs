@@ -1,6 +1,6 @@
 ﻿using AsteriskReport.Contracts.DTOs;
 
-namespace AsteriskReport.Logic.Graph
+namespace AsteriskReport.Contracts.Interfaces.Graph
 {
     public interface IBarGraph
     {

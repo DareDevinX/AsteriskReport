@@ -1,5 +1,6 @@
-﻿using AsteriskReport.Contracts.Interfaces;
-using AsteriskReport.Logic.Graph;
+﻿using AsteriskReport.Contracts.Interfaces.Calls;
+using AsteriskReport.Contracts.Interfaces.Graph;
+using AsteriskReport.Contracts.Interfaces.Parsers;
 
 namespace AsteriskReport.Logic
 {

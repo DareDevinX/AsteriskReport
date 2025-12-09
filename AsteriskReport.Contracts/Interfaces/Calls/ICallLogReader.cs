@@ -1,4 +1,4 @@
-﻿namespace AsteriskReport.Contracts.Interfaces
+﻿namespace AsteriskReport.Contracts.Interfaces.Calls
 {
     public interface ICallLogReader
     {

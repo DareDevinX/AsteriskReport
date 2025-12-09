@@ -1,6 +1,6 @@
 ﻿using AsteriskReport.Contracts.DTOs;
 
-namespace AsteriskReport.Contracts.Interfaces
+namespace AsteriskReport.Contracts.Interfaces.Calls
 {
     public interface ICallEventAnalyzer
     {

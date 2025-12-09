@@ -1,7 +1,7 @@
 ﻿using AsteriskReport.Contracts.Config;
-using AsteriskReport.Contracts.Interfaces;
+using AsteriskReport.Contracts.Interfaces.Calls;
 
-namespace AsteriskReport.Logic
+namespace AsteriskReport.Logic.Calls
 {
     public class CallLogReader : ICallLogReader
     {

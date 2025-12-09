@@ -1,7 +1,7 @@
 ﻿using AsteriskReport.Contracts.DTOs;
-using AsteriskReport.Contracts.Interfaces;
+using AsteriskReport.Contracts.Interfaces.Parsers;
 
-namespace AsteriskReport.Logic
+namespace AsteriskReport.Logic.Parsers
 {
     public class QueueEventParser : IQueueEventParser
     {

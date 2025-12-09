@@ -1,6 +1,6 @@
 ﻿using AsteriskReport.Contracts.DTOs;
-using AsteriskReport.Contracts.Interfaces;
-using AsteriskReport.Logic;
+using AsteriskReport.Contracts.Interfaces.EventConverters;
+using AsteriskReport.Logic.Calls;
 using AsteriskReport.Logic.EventConverters;
 using AutoFixture;
 

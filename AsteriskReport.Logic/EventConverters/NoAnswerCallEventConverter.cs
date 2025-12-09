@@ -1,5 +1,5 @@
 ﻿using AsteriskReport.Contracts.DTOs;
-using AsteriskReport.Contracts.Interfaces;
+using AsteriskReport.Contracts.Interfaces.EventConverters;
 
 namespace AsteriskReport.Logic.EventConverters
 {
