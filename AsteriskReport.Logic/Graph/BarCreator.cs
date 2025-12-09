@@ -20,7 +20,7 @@ namespace AsteriskReport.Logic.Graph
             for (var i = 0; i < callsByTime.Length; i++)
             {
                 var grouping = callsByTime[i];
-                bars.Add(new Bar(convertCallGroupToBars(grouping), i, config.BarWidth, grouping.Key));
+                bars.Add(new Bar(this.convertCallGroupToBars(grouping), i, config.BarWidth, grouping.Key));
             }
 
             return bars;
@@ -29,25 +29,36 @@ namespace AsteriskReport.Logic.Graph
         private IEnumerable<BarSegment> convertCallGroupToBars(IEnumerable<Call> calls)
         {
             var barSegments = new List<BarSegment>();
+
+            float calculateYPositionForNextSegment()
+            {
+                return barSegments.Sum(segment => segment.Height);
+            }
+
             foreach (var call in calls)
             {
                 var waitTimeSection = new BarSegment(
-                    barSegments.Sum(segment => segment.Height),
-                    Math.Max(config.MinBarSegmentLength, Math.Min(call.WaitTimeSeconds, config.MaxBarSegmentLength)));
+                    calculateYPositionForNextSegment(),
+                    this.getTimeWithinBoundaries(call.WaitTimeSeconds));
 
                 barSegments.Add(waitTimeSection);
                 if (call.WasSuccessful)
                 {
                     waitTimeSection.Color = BarColor.Yellow;
                     var callTimeSegment = new BarSegment(
-                        barSegments.Sum(segment => segment.Height),
-                        call.CallTimeSeconds);
+                        calculateYPositionForNextSegment(),
+                        this.getTimeWithinBoundaries(call.CallTimeSeconds));
                     callTimeSegment.Color = BarColor.Green;
                     barSegments.Add(callTimeSegment);
                 }
             }
 
             return barSegments;
+        }
+
+        private int getTimeWithinBoundaries(int time)
+        {
+           return Math.Max(this.config.MinBarSegmentLength, Math.Min(time, this.config.MaxBarSegmentLength));
         }
     }
 }
