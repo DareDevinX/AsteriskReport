@@ -41,7 +41,7 @@ namespace AsteriskReport.Logic.Graph
                     waitTimeSection.Color = BarColor.Yellow;
                     var callTimeSegment = new BarSegment(
                         barSegments.Sum(segment => segment.Height),
-                        call.WaitTimeSeconds);
+                        call.CallTimeSeconds);
                     callTimeSegment.Color = BarColor.Green;
                     barSegments.Add(callTimeSegment);
                 }
