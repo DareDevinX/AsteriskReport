@@ -15,7 +15,7 @@ namespace AsteriskReport.ConsoleApp.DI
             var services = new ServiceCollection();
             services.AddSingleton<IConfiguration>(configuration);
             services.AddSingleton(configuration.GetRequiredSection("AppSettings").GetRequiredSection("BarGraphConfig").Get<BarGraphConfig>());
-            services.AddSingleton<IFileReader, FileReader>();
+            services.AddSingleton<ICallLogReader, CallLogReader>();
             services.AddSingleton<ITimestampConverter, TimestampConverter>();
             services.AddSingleton<IEventTypeParser, EventTypeParser>();
             services.AddSingleton<ICallEventConverter, SuccessfulCallEventConverter>();

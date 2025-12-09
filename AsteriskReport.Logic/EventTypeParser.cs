@@ -5,7 +5,7 @@ namespace AsteriskReport.Logic
 {
     public class EventTypeParser : IEventTypeParser
     {
-        private Dictionary<string, EventType> eventTypesByUpperCaseName 
+        private readonly Dictionary<string, EventType> eventTypesByUpperCaseName 
             = Enum.GetValues<EventType>().ToDictionary(e => e.ToString().ToUpperInvariant());
 
         public EventType Parse(string eventType)

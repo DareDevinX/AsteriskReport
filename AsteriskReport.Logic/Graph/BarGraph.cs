@@ -7,18 +7,18 @@ namespace AsteriskReport.Logic.Graph
 {
     public class BarGraph : IBarGraph
     {
-        private Bitmap bitmap;
-        private Graphics graphics;
-        private int barGraphHeight;
-        private int barGraphWidth;
-        private BarGraphConfig config;
+        private readonly Bitmap bitmap;
+        private readonly Graphics graphics;
+        private readonly int barGraphHeight;
+        private readonly int barGraphWidth;
+        private readonly BarGraphConfig config;
 
-        private static Pen borderPen = new Pen(Color.Black, 1);
-        private static Brush backgroundBrush = new SolidBrush(Color.White);
-        private static Brush textBrush = new SolidBrush(Color.Black);
-        private static StringFormat verticalStringFormat = new StringFormat(StringFormatFlags.DirectionVertical);
+        private static readonly Pen borderPen = new Pen(Color.Black, 1);
+        private static readonly Brush backgroundBrush = new SolidBrush(Color.White);
+        private static readonly Brush textBrush = new SolidBrush(Color.Black);
+        private static readonly StringFormat verticalStringFormat = new StringFormat(StringFormatFlags.DirectionVertical);
 
-        private Dictionary<BarColor, Brush> brushesByColor = new Dictionary<BarColor, Brush>()
+        private readonly Dictionary<BarColor, Brush> brushesByColor = new Dictionary<BarColor, Brush>()
         {
             { BarColor.Red, new SolidBrush(Color.Red)},
             { BarColor.Yellow, new SolidBrush(Color.Yellow)},
@@ -41,15 +41,16 @@ namespace AsteriskReport.Logic.Graph
 
         public void DrawAxis()
         {
-            graphics.DrawString("Calls", new Font("Arial", 10), textBrush, 30, 0, verticalStringFormat);
+            graphics.DrawString(config.YAxisLabel, new Font(config.FontFamily, 10), textBrush, 30, 0, verticalStringFormat);
             graphics.DrawLine(borderPen, config.GraphLeftOffset, barGraphHeight, barGraphWidth + config.GraphLeftOffset, barGraphHeight);
             graphics.DrawLine(borderPen, config.GraphLeftOffset, barGraphHeight, config.GraphLeftOffset, 0);
         }
 
         public void DrawBarLabel(DateTime timestamp, float x)
         {
-            var timestampString = timestamp.ToString(CultureInfo.InvariantCulture);
-            graphics.DrawString(timestampString, new Font("Arial", 10), textBrush, calculateXPosition(x), barGraphHeight, verticalStringFormat);
+            var culture = CultureInfo.GetCultureInfo(config.TimestampCulture) ?? CultureInfo.InvariantCulture;
+            var timestampString = timestamp.ToString(culture);
+            graphics.DrawString(timestampString, new Font(config.FontFamily, 10), textBrush, calculateXPosition(x), barGraphHeight, verticalStringFormat);
         }
 
         public void DrawBarSegment(BarSegment segment, float x)
@@ -76,7 +77,7 @@ namespace AsteriskReport.Logic.Graph
 
         public void SaveBitmap()
         {
-            this.bitmap.Save("output.bmp");
+            this.bitmap.Save(config.OutputFileName);
         }
     }
 }

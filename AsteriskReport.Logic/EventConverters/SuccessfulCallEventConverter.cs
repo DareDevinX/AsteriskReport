@@ -6,7 +6,7 @@ namespace AsteriskReport.Logic.EventConverters
     public class SuccessfulCallEventConverter : ICallEventConverter
     {
 
-        private EventType[] successfulCallEventTypes = new[]
+        private readonly EventType[] successfulCallEventTypes = new[]
         {
             EventType.CompleteCaller,
             EventType.CompleteAgent
