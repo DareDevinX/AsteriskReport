@@ -6,7 +6,7 @@ using ObjectsComparator.Comparator.Helpers;
 namespace AsteriskReport.Tests.IntegrationTests
 {
     [TestFixture]
-    public class QueueLogParserTests
+    public class QueueLogParserTests : TestBase
     {
         private QueueEventParser sut;
 
@@ -37,10 +37,8 @@ namespace AsteriskReport.Tests.IntegrationTests
                 EventType = EventType.RingNoAnswer,
                 Parameters = ["0"] 
             };
-
-            // Assert
-            var comparisonResult = actualResult.DeeplyEquals(expectedResult);
-            Assert.IsTrue(comparisonResult.IsEmpty(), comparisonResult.FirstOrDefault()?.ToString());
+            
+            AssertDeepEquality(expectedResult, actualResult);
         }
     }
 }
